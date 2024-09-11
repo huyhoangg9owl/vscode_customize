@@ -6,11 +6,11 @@
 	white-space: nowrap;
 	-webkit-margin-before: 0;
 	-webkit-margin-after: 0;
-	font-family: "Monaspace Radon", monospace !important;
+	font-family: 'Monaspace Radon', monospace !important;
 }
 
 .mtk3 {
-	font-family: "Monaspace Radon", monospace !important;
+	font-family: 'Monaspace Radon', monospace !important;
 	color: #008c7d !important;
 }
 
@@ -18,7 +18,7 @@
 	position: relative !important;
 	width: 35px !important;
 	font-size: 16px !important;
-	font-family: "Monaspace Radon" !important;
+	font-family: 'Monaspace Radon' !important;
 	opacity: 0.3;
 	left: 25px !important;
 }
@@ -51,12 +51,7 @@
 }
 
 /* Toolbars when tabs are enabled. */
-.monaco-workbench
-	.part.editor
-	> .content
-	.editor-group-container
-	> .title
-	.editor-actions {
+.monaco-workbench .part.editor > .content .editor-group-container > .title .editor-actions {
 	display: none !important;
 }
 
@@ -87,7 +82,7 @@
 /* File Explorer Item Label */
 .monaco-tree .monaco-tree-row .label-name,
 .monaco-list .monaco-list-row .monaco-icon-label .label-name {
-	font-family: "Monaspace Radon", monospace !important;
+	font-family: 'Monaspace Radon', monospace !important;
 	font-size: 14px !important;
 	font-weight: 400 !important;
 	color: #fff !important;
@@ -97,14 +92,8 @@
 	justify-content: center;
 }
 
-.monaco-workbench
-	.part.editor
-	> .content
-	.editor-group-container
-	> .title
-	.title-label
-	a {
-	font-family: "Monaspace Radon", monospace !important;
+.monaco-workbench .part.editor > .content .editor-group-container > .title .title-label a {
+	font-family: 'Monaspace Radon', monospace !important;
 }
 
 /* Sidebar top shadow */
@@ -132,7 +121,7 @@
 	display: inline-block;
 	margin-right: 6px;
 	font-size: 1.1rem;
-	content: "🐧";
+	content: '🐧';
 }
 
 /* Scroll Bar */
@@ -158,7 +147,7 @@
 	backdrop-filter: blur(3px) !important;
 	border-radius: 10px !important;
 	border: none !important;
-	font-family: "Monaspace Radon", monospace !important;
+	font-family: 'Monaspace Radon', monospace !important;
 }
 
 /* Project title's style at the top. */
@@ -180,9 +169,17 @@
 	width: auto !important;
 }
 
+.titlebar-container {
+	justify-content: center !important;
+}
+
+.titlebar-right {
+	display: none !important;
+}
+
 /* Search Label */
 .search-label {
-	font-family: "Monaspace Radon" !important;
+	font-family: 'Monaspace Radon' !important;
 	font-size: 14px !important;
 	color: #fff;
 	display: block;
@@ -212,7 +209,7 @@
 	top: 50% !important;
 	box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.45) !important;
 	padding: 10px !important;
-	background-image: linear-gradient(#3c3c50 0%, #2a2b38 100%) !important;
+	background-image: linear-gradient(#3c3c50 0%, #323455 100%) !important;
 	backdrop-filter: blur(3px) !important;
 	border-radius: 6px !important;
 }
@@ -249,7 +246,7 @@
 	padding: 8px !important;
 	border: none !important;
 	background-color: rgba(34, 34, 34, 0.4) !important;
-	font-family: "Monaspace Radon" !important;
+	font-family: 'Monaspace Radon' !important;
 	font-size: 14px !important;
 	margin-bottom: 16px !important;
 }
@@ -284,57 +281,69 @@
 }
 
 .letterpress {
-	background-image: url("https://i.postimg.cc/zDFYnhwK/arch-linux-linux-distribution-installation-xfce-linux-79253b371142b95512bb55d889e06f9f.png") !important;
+	background-image: url('https://code.visualstudio.com/favicon.ico') !important;
 	background-repeat: no-repeat no-repeat !important;
 	background-position: center center !important;
 	background-size: contain !important;
-	width: 40% !important;
+	width: 400px !important;
 }
 
 .shortcuts {
 	display: none;
 }
 
-.monaco-workbench
-	.part.editor
-	> .content
-	.editor-group-container.active
-	> .title
-	.tabs-container
-	> .tab {
+.monaco-workbench .part.editor > .content .editor-group-container.active > .title .tabs-container > .tab {
 	opacity: 0.1;
 }
 
-.monaco-workbench
-	.part.editor
-	> .content
-	.editor-group-container.active
-	> .title
-	.tabs-container
-	> .tab.active {
+.monaco-workbench .part.editor > .content .editor-group-container.active > .title .tabs-container > .tab.active {
 	opacity: 1;
 	--tab-border-bottom-color: none !important;
 }
 
-.monaco-workbench
-	.part.editor
-	> .content
-	.editor-group-container
-	> .title
-	.tabs-container
-	> .tab
-	.tab-label
-	a {
-	font-family: "Monaspace Radon", monospace !important;
+.monaco-workbench .part.editor > .content .editor-group-container > .title .tabs-container > .tab .tab-label a {
+	font-family: 'Monaspace Radon', monospace !important;
 }
 
-.monaco-workbench
-	.pane-composite-part
-	> .header-or-footer
-	.composite-bar-container {
+.monaco-workbench .pane-composite-part > .header-or-footer .composite-bar-container {
 	justify-content: center;
 }
 
 .suggest-input-container .mtk1 {
-	font-family: "Monaspace Radon", monospace;
+	font-family: 'Monaspace Radon', monospace;
+}
+
+.monaco-workbench:not(.reduce-motion) .monaco-editor .dirty-diff-added,
+.monaco-workbench:not(.reduce-motion) .monaco-editor .dirty-diff-added-pattern,
+.monaco-workbench:not(.reduce-motion) .monaco-editor .dirty-diff-modified,
+.monaco-workbench:not(.reduce-motion) .monaco-editor .dirty-diff-modified-pattern {
+	transition: opacity 0.5s !important;
+	left: 65px !important;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title > .label-container {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	flex: auto;
+	height: auto;
+	justify-content: center;
+	overflow: hidden;
+	padding-bottom: 10px;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title.breadcrumbs .breadcrumbs-control {
+	flex: 1 50%;
+	margin: 0 auto;
+	overflow: hidden;
+	padding: 0 10px;
+	font-family: 'Monaspace Radon', monospace;
+	max-width: 95%;
+}
+
+.monaco-workbench .part.editor > .content .editor-group-container > .title.breadcrumbs .single-tab.title-label {
+	flex: none;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 0;
 }
