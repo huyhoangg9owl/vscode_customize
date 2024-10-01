@@ -1,92 +1,44 @@
-document.addEventListener('DOMContentLoaded', function () {
-	const checkElement = setInterval(() => {
-		const commandDialog = document.querySelector('.quick-input-widget');
-		if (commandDialog) {
-			const observer = new MutationObserver((mutations) => {
-				mutations.forEach((mutation) => {
-					if (mutation.type === 'attributes' && mutation.attributeName === 'style') {
-						if (commandDialog.style.display === 'none') {
-							handleEscape();
-						} else {
-							runMyScript();
-						}
-					}
-				});
-      });
+document.addEventListener('DOMContentLoaded', function() {
+    const checkElement = setInterval(() => {
+        const commandDialog = document.querySelector(".quick-input-widget");
+        if (commandDialog) {
+            // Check if the command palette element is visible for the first time.
+            if (commandDialog.style.display !== "none") {
+                applyBlur();
+            }
+            observeCommandDialog(commandDialog);
+            clearInterval(checkElement);
+        }
+    }, 500); // Check every 0.5s
 
-			observer.observe(commandDialog, {
-				attributes: true,
-			});
+    function observeCommandDialog(commandDialog) {
+        const observer = new MutationObserver(() => {
+            if (commandDialog.style.display !== "none") {
+                applyBlur();
+            } else {
+                removeBlur();
+            }
+        });
 
-			// Clear the interval once the observer is set
-			clearInterval(checkElement);
-		} else {
-			console.log('Command dialog not found yet. Retrying...');
-		}
+        observer.observe(commandDialog, { attributes: true });
+    }
 
-		changeExplorer();
-	}, 500); // Check every 500ms
+    function applyBlur() {
+        const targetDiv = document.querySelector(".monaco-workbench .part.editor>.content");
+        let blurElement = document.getElementById("bg-blur");
 
-	// Execute when command palette was launched.
-	document.addEventListener('keydown', function (event) {
-		if ((event.metaKey || event.ctrlKey) && event.key === 'p') {
-			event.preventDefault();
-			runMyScript();
-		} else if (event.key === 'Escape' || event.key === 'Esc') {
-			event.preventDefault();
-			handleEscape();
-		}
-	});
+        if (!blurElement) {
+            blurElement = document.createElement("div");
+            blurElement.setAttribute('id', 'bg-blur');
+            blurElement.addEventListener('click', removeBlur);
+            targetDiv.appendChild(blurElement);
+        }
+    }
 
-	// Ensure the escape key event listener is at the document level
-	document.addEventListener(
-		'keydown',
-		function (event) {
-			if (event.key === 'Escape' || event.key === 'Esc') {
-				handleEscape();
-			}
-		},
-		true,
-	);
-
-	function runMyScript() {
-		const targetDiv = document.querySelector('.monaco-workbench');
-
-		// Remove existing element if it already exists
-		const existingElement = document.getElementById('command-blur');
-		if (existingElement) {
-			existingElement.remove();
-		}
-
-		// Create and configure the new element
-		const newElement = document.createElement('div');
-		newElement.setAttribute('id', 'command-blur');
-
-		newElement.addEventListener('click', function () {
-			newElement.remove();
-		});
-
-		// Append the new element as a child of the targetDiv
-		targetDiv.appendChild(newElement);
-	}
-
-	function handleEscape() {
-		// Your handleEscape function logic here
-		console.log('handleEscape function triggered');
-	}
-
-	// Remove the backdrop blur from the DOM when esc key is pressed.
-	function handleEscape() {
-		const element = document.getElementById('command-blur');
-		if (element) {
-			element.click();
-		}
-	}
-
-	function changeExplorer() {
-		const explorer = document.querySelector(
-			'#workbench\\.parts\\.sidebar > div.composite.title > div.title-label > h2',
-		);
-		if (explorer) explorer.textContent = 'Arch Linux go skrttt';
-	}
+    function removeBlur() {
+        const blurElement = document.getElementById("bg-blur");
+        if (blurElement) {
+            blurElement.remove();
+        }
+    }
 });
